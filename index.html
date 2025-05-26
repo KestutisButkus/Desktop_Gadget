@@ -7,21 +7,41 @@
     <title>Produkto pristatymas</title>
 
     <!-- SEO ir socialinė informacija -->
-    <meta name="description" content="Inovatyvūs Python sprendimai duomenų analizei, apskaitai ir informacijos pateikimui.">
+    <meta name="description"
+          content="Inovatyvūs Python sprendimai duomenų analizei, apskaitai ir informacijos pateikimui.">
     <meta property="og:title" content="Python Sprendimai – PySolutions">
-    <meta property="og:description" content="Praktiški, modernūs sprendimai kasdieniam naudojimui, sukurti Python pagrindu.">
+    <meta property="og:description"
+          content="Praktiški, modernūs sprendimai kasdieniam naudojimui, sukurti Python pagrindu.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="img/logo.png"> <!-- jei turi paveikslėlį -->
+    <meta property="og:image" content="img/logo.png">
 
+    <!-- CSS ir ikonų bibliotekos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="web_page/style.css">
+
+    <!-- Papildomas stilius fonui -->
+    <style>
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+    </style>
 </head>
 <body>
 
+<!-- tsParticles fonas -->
+<div id="tsparticles"></div>
+
+<!-- Navigacija -->
 <nav class="navbar navbar-expand-lg shadow-sm">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <!-- SVG logotipas -->
             <svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="0 0 500 150" role="img"
                  aria-label="PySolutions logotipas">
                 <rect x="0" y="0" width="500" height="150" rx="20" fill="#f0fdf4"/>
@@ -51,14 +71,13 @@
     </div>
 </nav>
 
+<!-- Turinys -->
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-9 product-card text-center">
             <h1 class="mb-4 text-primary fw-bold">Sveiki atvykę!</h1>
             <p class="lead text-secondary mb-4">
-                Kuriame inovatyvius ir praktiškus sprendimus, padedančius kasdieniame gyvenime. Mūsų tikslas –
-                sujungti funkcionalumą su patogumu, kad kiekvienas vartotojas galėtų lengvai pasinaudoti technologijų
-                privalumais.
+                Kuriame inovatyvius ir praktiškus sprendimus, padedančius kasdieniame gyvenime...
             </p>
 
             <div class="feature-box text-start">
@@ -84,19 +103,71 @@
             </div>
 
             <p class="lead text-secondary my-4">
-                Kviečiame susipažinti su mūsų inovacijomis ir atrasti, kaip jos gali palengvinti jūsų kasdienybę!
+                Kviečiame susipažinti su mūsų inovacijomis...
             </p>
 
-            <img src="web_page/img/orange.jpg" alt="Produkto paveikslėlis" class="product-image shadow">
+            <img src="web_page/img/img.png" alt="Produkto paveikslėlis" class="product-image shadow">
 
             <p class="lead text-secondary mb-4"><br>
                 Šis produktas yra puikus pasirinkimas visiems, kurie ieško kokybės ir patikimumo.
             </p>
+        </div>
+    </div>
+</div>
 
+<!-- Puslapio apačia -->
 <footer>
-    <p class="mt-5">© 2025 Python Solutions. Visiška duomenų kontrolė – jūsų rankose.</p>
+    <p class="mt-5 text-center">© 2025 Python Solutions. Visiška duomenų kontrolė – jūsų rankose.</p>
 </footer>
 
+<!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  background: {
+    color: {
+      value: "#000000"
+    }
+  },
+  particles: {
+    number: {
+      value: 80
+    },
+    color: {
+      value: "#00ffcc"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: 3
+    },
+    links: {
+      enable: true,
+      distance: 150,
+      color: "#00ffcc",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: {
+        enable: true,
+        mode: "repulse"
+      }
+    }
+  }
+});
+</script>
+
 </body>
 </html>

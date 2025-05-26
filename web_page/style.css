@@ -1,8 +1,13 @@
 /* Stiliai iš index.html ir anksčiau buvę style.css, sujungti */
-body {
-    background: linear-gradient(to bottom, #000, #2B5B84); /* Iš index.html */
-    font-family: 'Segoe UI', sans-serif; /* Iš index.html */
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
 }
+
 
 .navbar { /* Iš index.html */
     background-color: #2b5b84;
@@ -16,9 +21,33 @@ body {
 .navbar-brand { /* Iš index.html */
     font-weight: 600;
 }
+.text-secondary {
+    color: #2b5b84 !important;
+    font-weight: 400 !important;
+}
+.text-center {
+    color: #2b5b84 !important;
+    font-weight: 400 !important;
+}
+
+.text-primary {
+    color: #2b5b84 !important;
+    font-weight: 600 !important;
+}
+
+.lead.mb-4 {
+    color: #2b5b84 !important;
+    font-weight: 400 !important;
+}
+
+.lead.mb-4.fw-semibold {
+    color: #1E90FF;
+    font-size: 1.5rem !important;
+    font-weight: 600;
+}
 
 .product-card {
-    background-color: #ffffff; /* Iš index.html */
+    background-color: #f7f8fa; /* Iš index.html */
     border-radius: 1.5rem; /* Iš index.html, ~24px */
     padding: 3rem; /* Iš index.html, ~48px */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Iš index.html */
@@ -29,7 +58,7 @@ body {
     height: auto; /* Iš ankstesnio style.css, gali būti naudinga */
     max-width: 100%; /* Iš index.html */
     border-radius: 1rem; /* Iš index.html, ~16px */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Iš index.html */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); /* Iš index.html */
 }
 
 .feature-box { /* Iš index.html */
@@ -37,14 +66,16 @@ body {
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1.5rem;
-    background-color: #f3f9ff;
+    color: #2B5B84;
+    background-color: #fff;
     padding: 1rem;
     border-radius: 1rem;
-    border-left: 5px solid #2b5b84;
+    border-left: 10px solid #2b5b84;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); /* Iš index.html */
 }
 
 .feature-box i { /* Iš index.html */
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     color: #2b5b84;
 }
 
