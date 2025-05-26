@@ -1,22 +1,58 @@
+/* Stiliai iš index.html ir anksčiau buvę style.css, sujungti */
 body {
-    background-color: #0088cc;
+    background: linear-gradient(to bottom, #000, #2B5B84); /* Iš index.html */
+    font-family: 'Segoe UI', sans-serif; /* Iš index.html */
 }
 
-.product-image {
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    /* padding: 10px; buvo desk_widg.html, bet ne kituose, todėl kol kas neįtraukiu */
+.navbar { /* Iš index.html */
+    background-color: #2b5b84;
+}
+
+.navbar-brand,
+.nav-link { /* Iš index.html */
+    color: #fff !important;
+}
+
+.navbar-brand { /* Iš index.html */
+    font-weight: 600;
 }
 
 .product-card {
-    background-color: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff; /* Iš index.html */
+    border-radius: 1.5rem; /* Iš index.html, ~24px */
+    padding: 3rem; /* Iš index.html, ~48px */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Iš index.html */
 }
 
-/* Stilius specifinis desk_widg.html paveikslėliams, kuris buvo inline */
-/* Gali būti perkeltas čia arba paliktas inline, jei taikomas tik tam vienam elementui */
-/* Kol kas palikime jį HTML'e, jei jis buvo specifinis tik tam puslapiui */
-/* ".product-image-padded { padding: 10px; }" jei norėtume iškelti */
+.product-image {
+    width: auto; /* Iš ankstesnio style.css, gali būti naudinga */
+    height: auto; /* Iš ankstesnio style.css, gali būti naudinga */
+    max-width: 100%; /* Iš index.html */
+    border-radius: 1rem; /* Iš index.html, ~16px */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Iš index.html */
+}
+
+.feature-box { /* Iš index.html */
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #f3f9ff;
+    padding: 1rem;
+    border-radius: 1rem;
+    border-left: 5px solid #2b5b84;
+}
+
+.feature-box i { /* Iš index.html */
+    font-size: 1.5rem;
+    color: #2b5b84;
+}
+
+/* h1 stilius pašalintas, kaip nurodyta užduotyje, kad Bootstrap .text-primary valdytų spalvą */
+
+footer { /* Iš index.html style bloko */
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 4rem;
+    color: #c2d6d6; /* Pagal užduoties aprašyme nurodytą CSS turinį */
+}

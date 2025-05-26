@@ -2,89 +2,26 @@
 <html lang="lt">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="lt">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Sprendimai – PySolutions</title>
+    <title>Produkto pristatymas</title>
 
     <!-- SEO ir socialinė informacija -->
-    <meta name="description"
-          content="Inovatyvūs Python sprendimai duomenų analizei, apskaitai ir informacijos pateikimui.">
+    <meta name="description" content="Inovatyvūs Python sprendimai duomenų analizei, apskaitai ir informacijos pateikimui.">
     <meta property="og:title" content="Python Sprendimai – PySolutions">
-    <meta property="og:description"
-          content="Praktiški, modernūs sprendimai kasdieniam naudojimui, sukurti Python pagrindu.">
+    <meta property="og:description" content="Praktiški, modernūs sprendimai kasdieniam naudojimui, sukurti Python pagrindu.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="img/logo.png">
+    <meta property="og:image" content="img/logo.png"> <!-- jei turi paveikslėlį -->
 
-    <!-- CSS ir ikonų bibliotekos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-    <style>
-        body {
-            background: linear-gradient(to bottom, #000, #2B5B84);
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .navbar {
-            background-color: #2b5b84;
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: #fff !important;
-        }
-
-        .navbar-brand {
-            font-weight: 600;
-        }
-
-        .product-card {
-            background-color: #ffffff;
-            border-radius: 1.5rem;
-            padding: 3rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-image {
-            max-width: 100%;
-            border-radius: 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-box {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            background-color: #f3f9ff;
-            padding: 1rem;
-            border-radius: 1rem;
-            border-left: 5px solid #2b5b84;
-        }
-
-        .feature-box i {
-            font-size: 1.5rem;
-            color: #2b5b84;
-        }
-
-        h1 {
-            color: #2b5b84;
-        }
-
-        footer {
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 4rem;
-            color: #c2d6d6;
-        }
-    </style>
+    <link rel="stylesheet" href="web_page/style.css">
 </head>
 <body>
 
-<!-- Navigacija -->
 <nav class="navbar navbar-expand-lg shadow-sm">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-            <!-- SVG logotipas -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
             <svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="0 0 500 150" role="img"
                  aria-label="PySolutions logotipas">
                 <rect x="0" y="0" width="500" height="150" rx="20" fill="#f0fdf4"/>
@@ -114,11 +51,10 @@
     </div>
 </nav>
 
-<!-- Turinys -->
-<main class="container py-5">
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-9 product-card text-center">
-            <h2 class="mb-4 text-primary fw-bold">Sveiki atvykę!</h2>
+            <h1 class="mb-4 text-primary fw-bold">Sveiki atvykę!</h1>
             <p class="lead text-secondary mb-4">
                 Kuriame inovatyvius ir praktiškus sprendimus, padedančius kasdieniame gyvenime. Mūsų tikslas –
                 sujungti funkcionalumą su patogumu, kad kiekvienas vartotojas galėtų lengvai pasinaudoti technologijų
@@ -153,21 +89,19 @@
 
             <img src="web_page/img/big.png" alt="Produkto paveikslėlis" class="product-image shadow">
 
-            <p class="lead text-secondary mb-4"><br><strong>
-                Šis produktas yra puikus pasirinkimas visiems, kurie ieško kokybės ir patikimumo.</strong>
+            <p class="lead text-secondary mb-4">
+                Šis produktas yra puikus pasirinkimas visiems, kurie ieško kokybės ir patikimumo.
             </p>
 
             <a href="web_page/skaps_top.html" class="btn btn-primary btn-lg px-4">Peržiūrėti produktą</a>
         </div>
     </div>
-</main>
+</div>
 
-<!-- Poraštė -->
 <footer>
     <p class="mt-5">© 2025 Python Solutions. Visiška duomenų kontrolė – jūsų rankose.</p>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
