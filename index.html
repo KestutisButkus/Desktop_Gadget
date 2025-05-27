@@ -20,17 +20,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="web_page/style.css">
 
-    <!-- Papildomas stilius fonui -->
-    <style>
-        #tsparticles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -108,8 +97,8 @@
 
             <img src="web_page/img/img.png" alt="Produkto paveikslėlis" class="product-image shadow">
 
-            <p class="lead text-secondary mb-4"><br>
-                Šis produktas yra puikus pasirinkimas visiems, kurie ieško kokybės ir patikimumo.
+            <p class="lead text-primary"><br>
+                Leiskite technologijoms dirbti jums!
             </p>
         </div>
     </div>
@@ -123,51 +112,6 @@
 <!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script>
-tsParticles.load("tsparticles", {
-  background: {
-    color: {
-      value: "#000000"
-    }
-  },
-  particles: {
-    number: {
-      value: 80
-    },
-    color: {
-      value: "#00ffcc"
-    },
-    shape: {
-      type: "circle"
-    },
-    opacity: {
-      value: 0.5
-    },
-    size: {
-      value: 3
-    },
-    links: {
-      enable: true,
-      distance: 150,
-      color: "#00ffcc",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2
-    }
-  },
-  interactivity: {
-    events: {
-      onhover: {
-        enable: true,
-        mode: "repulse"
-      }
-    }
-  }
-});
-</script>
-
+<script src="web_page/particles-config.js"></script>
 </body>
 </html>

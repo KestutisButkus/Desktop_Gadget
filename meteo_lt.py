@@ -2,7 +2,7 @@
 # import os
 # import requests
 #
-# place = "žiegždriai"
+# place = "Kaunas"
 # url = f"https://api.meteo.lt/v1/places/{place}/forecasts/long-term"
 #
 # # Atliksime GET užklausą
@@ -181,7 +181,7 @@ from datetime import datetime
 
 
 
-def get_weather_data(place="žiegždriai"):
+def get_weather_data(place="kaunas"):
     url = f"https://api.meteo.lt/v1/places/{place}/forecasts/long-term"
     response = requests.get(url)
     data = response.json()

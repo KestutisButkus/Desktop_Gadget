@@ -1,4 +1,3 @@
-/* Stiliai iš index.html ir anksčiau buvę style.css, sujungti */
 #tsparticles {
     position: fixed;
     width: 100%;
@@ -50,7 +49,7 @@
     background-color: #f7f8fa; /* Iš index.html */
     border-radius: 1.5rem; /* Iš index.html, ~24px */
     padding: 3rem; /* Iš index.html, ~48px */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Iš index.html */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Iš index.html */
 }
 
 .product-image {
