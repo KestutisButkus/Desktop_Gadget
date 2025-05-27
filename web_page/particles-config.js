@@ -6,7 +6,7 @@ tsParticles.load("tsparticles", {
     },
     particles: {
         number: {
-            value: 300
+            value: 200
         },
         color: {
             value: "#014aa7"
@@ -29,7 +29,7 @@ tsParticles.load("tsparticles", {
         },
         move: {
             enable: true,
-            speed: 2
+            speed: 1
         }
     },
     interactivity: {
