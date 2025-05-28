@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/web_page/manifest.json">
 
+
     <title>Produkto pristatymas</title>
 
     <!-- SEO ir socialinė informacija -->
@@ -113,7 +114,7 @@
 
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('service-worker.js')
             .then(function (registration) {
                 console.log('Service Worker registered with scope:', registration.scope);
             })
