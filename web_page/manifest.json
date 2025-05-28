@@ -1,7 +1,7 @@
 {
   "name": "Python Sprendimai",
   "short_name": "PySolutions",
-  "start_url": "/Desktop_Gadget/index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#f0fdf4",
   "theme_color": "#2b5b84",
