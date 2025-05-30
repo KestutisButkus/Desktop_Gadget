@@ -1,28 +1,30 @@
 #tsparticles {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
 
-html {
-    font-size: 80%;
+.navbar-expand-lg {
+    background-color: #2b5b84  !important;
 }
 
-.navbar { /* Iš index.html */
-    background-color: #2b5b84;
+.navbar-nav .nav-link {
+    color: #c6d5e3 !important;
+    transition: color 0.3s ease;
 }
 
-.navbar-brand,
-.nav-link { /* Iš index.html */
-    color: #fff !important;
-}
-
-.navbar-brand { /* Iš index.html */
+.navbar-nav .nav-link.active {
+    color: #c6d5e3 !important;
     font-weight: 600;
 }
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+}
+
 .text-secondary {
     color: #2b5b84 !important;
     font-weight: 400 !important;
