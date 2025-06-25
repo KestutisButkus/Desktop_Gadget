@@ -6,7 +6,7 @@ tsParticles.load("tsparticles", {
     },
     particles: {
         number: {
-            value: 200
+            value: 50
         },
         color: {
             value: "#014aa7"
