@@ -47,10 +47,8 @@ def fetch_pixmap(url, w=72, h=50):
     try:
         resp = requests.get(url, timeout=3)
         resp.raise_for_status()
-
         img = PilImage.open(io.BytesIO(resp.content))
         img = img.convert("RGBA").resize((w, h))
-
         return QPixmap.fromImage(
             QImage(img.tobytes(), w, h, QImage.Format_RGBA8888)
         )
@@ -70,7 +68,7 @@ class FetchWorker(QThread):
     def run(self):
         try:
             self.done.emit(self.func())
-        except:
+        except Exception:
             self.done.emit(None)
 
 
@@ -119,7 +117,6 @@ class RoundedWindow(QWidget):
         pad = float(self.pad)
         rect = QRectF(self.rect()).adjusted(pad, pad, -pad, -pad)
 
-        # Natūralus šešėlis (Gaussian aproksimacija)
         p.setPen(Qt.NoPen)
         for i in range(int(pad), 0, -1):
             t = i / pad
@@ -130,7 +127,6 @@ class RoundedWindow(QWidget):
             r = cfg.CORNER_RADIUS + i * 0.5
             p.drawRoundedRect(rect.adjusted(-i, -i, i, i), r, r)
 
-        # Fonas
         path = QPainterPath()
         path.addRoundedRect(rect, cfg.CORNER_RADIUS, cfg.CORNER_RADIUS)
         if self.grad:
@@ -158,11 +154,11 @@ class WeatherWidget(RoundedWindow):
 
         self.city_lbl = lbl("Kraunama...", 14, True, cfg.T_ACCENT)
         self.temp_lbl = lbl("", 20, True)
-        self.feels_lbl = lbl("", 12, True, cfg.T_MUTED)
+        self.feels_lbl = lbl("", 12, True, "#d9e8ff")
         self.timer_lbl = lbl("", 7, color=cfg.T_MUTED)
         self.timer_lbl.setAlignment(Qt.AlignRight)
-        self.left_details = lbl("", 9, color=cfg.T_WHITE)
-        self.right_details = lbl("", 9, color=cfg.T_WHITE)
+        self.left_details = lbl("", 9, color="#d9e8ff")
+        self.right_details = lbl("", 9, color="#d9e8ff")
         self.right_details.setAlignment(Qt.AlignRight)
 
         self.icon_lbl = QLabel()
@@ -174,22 +170,22 @@ class WeatherWidget(RoundedWindow):
         add_shadow(self.icon_lbl)
 
         cx = QHBoxLayout()
-        cx.addStretch();
-        cx.addWidget(self.temp_lbl);
+        cx.addStretch()
+        cx.addWidget(self.temp_lbl)
         cx.addStretch()
 
         h1 = QHBoxLayout()
-        h1.addWidget(self.city_lbl);
-        h1.addLayout(cx);
+        h1.addWidget(self.city_lbl)
+        h1.addLayout(cx)
         h1.addWidget(self.feels_lbl)
 
         h2 = QHBoxLayout()
-        h2.addWidget(self.left_details, 1);
-        h2.addWidget(self.icon_lbl);
+        h2.addWidget(self.left_details, 1)
+        h2.addWidget(self.icon_lbl)
         h2.addWidget(self.right_details, 1)
 
-        lo.addLayout(h1);
-        lo.addLayout(h2);
+        lo.addLayout(h1)
+        lo.addLayout(h2)
         lo.addWidget(self.timer_lbl)
         self._start_fetch()
 
@@ -197,10 +193,11 @@ class WeatherWidget(RoundedWindow):
         self._spawn(meteo_lt.get_weather_data, self._on_data)
 
     def _on_data(self, res):
-        if not res: return
-        self.city_lbl.setText(res[0]);
+        if not res:
+            return
+        self.city_lbl.setText(res[0])
         self.temp_lbl.setText(res[1])
-        self.feels_lbl.setText(res[2]);
+        self.feels_lbl.setText(res[2])
         self.left_details.setText(res[3])
         self.right_details.setText(res[4])
         self.icon_lbl.setPixmap(QPixmap(res[5]).scaled(48, 48, Qt.KeepAspectRatio, Qt.SmoothTransformation))
@@ -329,13 +326,13 @@ class NewsWidget(RoundedWindow):
         lo.setContentsMargins(self.pad + 12, self.pad + 8, self.pad + 12, self.pad + 18)
         lo.setSpacing(0)
 
-        self.s1 = NewsSection("15min naujienos", self);
+        self.s1 = NewsSection("15min naujienos", self)
         lo.addWidget(self.s1)
-        self.s2 = NewsSection("LRT naujienos", self);
+        self.s2 = NewsSection("LRT naujienos", self)
         lo.addWidget(self.s2)
-        self.s3 = NewsSection("Delfi naujienos", self);
+        self.s3 = NewsSection("Delfi naujienos", self)
         lo.addWidget(self.s3)
-        self.s4 = NewsSection("Verslo žinios", self, False);
+        self.s4 = NewsSection("Verslo žinios", self, False)
         lo.addWidget(self.s4)
         self._start_fetch()
 
@@ -347,7 +344,8 @@ class NewsWidget(RoundedWindow):
         )
 
     def _on_data(self, res):
-        if not res: return
+        if not res:
+            return
         for s, r in zip([self.s1, self.s2, self.s3, self.s4], res):
             s.set_items(r)
         QTimer.singleShot(100, self.adjustSize)
