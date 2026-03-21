@@ -154,11 +154,11 @@ class WeatherWidget(RoundedWindow):
 
         self.city_lbl = lbl("Kraunama...", 14, True, cfg.T_ACCENT)
         self.temp_lbl = lbl("", 20, True)
-        self.feels_lbl = lbl("", 12, True, "#d9e8ff")
+        self.feels_lbl = lbl("", 12, True, cfg.T_MUTED)
         self.timer_lbl = lbl("", 7, color=cfg.T_MUTED)
         self.timer_lbl.setAlignment(Qt.AlignRight)
-        self.left_details = lbl("", 9, color="#d9e8ff")
-        self.right_details = lbl("", 9, color="#d9e8ff")
+        self.left_details = lbl("", 9, color=cfg.T_WHITE)
+        self.right_details = lbl("", 9, color=cfg.T_WHITE)
         self.right_details.setAlignment(Qt.AlignRight)
 
         self.icon_lbl = QLabel()
