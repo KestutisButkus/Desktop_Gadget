@@ -1,52 +1,48 @@
-import asyncio
 import datetime
-import aiohttp
-from pynordpool import NordPoolClient
-from pynordpool.const import Currency
+import logging
+import requests
 
 VAT_MULTIPLIER = 1.21
 KWH_DIVISOR = 1000
+API_URL = "https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices"
 
 
-async def _fetch_prices() -> dict:
-    """Asinchroniškai gauna šiandienos ir rytojaus elektros kainas."""
-    async with aiohttp.ClientSession() as session:
-        client = NordPoolClient(session)
-
-        today = datetime.datetime.now()
-        output_today = await client.async_get_delivery_period(today, Currency.EUR, ["LT"])
-        price_today = round(output_today.area_average["LT"] * VAT_MULTIPLIER / KWH_DIVISOR, 3)
-
-        tomorrow = today + datetime.timedelta(days=1)
-        try:
-            output_tomorrow = await client.async_get_delivery_period(tomorrow, Currency.EUR, ["LT"])
-            price_tomorrow = round(output_tomorrow.area_average["LT"] * VAT_MULTIPLIER / KWH_DIVISOR, 3)
-            tomorrow_str = f"{price_tomorrow} €"
-        except Exception:
-            tomorrow_str = "duomenų dar nėra."
-
-        return {
-            "today": f"{price_today} €",
-            "tomorrow": tomorrow_str,
-        }
+def _fetch_price(date: datetime.date) -> float | None:
+    params = {
+        "date": date.strftime("%Y-%m-%d"),
+        "market": "DayAhead",
+        "deliveryArea": "LT",
+        "currency": "EUR",
+    }
+    try:
+        resp = requests.get(API_URL, params=params, timeout=10)
+        if resp.status_code == 204:
+            return None
+        resp.raise_for_status()
+        rows = resp.json().get("multiAreaEntries", [])
+        prices = [r["entryPerArea"]["LT"] for r in rows if "LT" in r.get("entryPerArea", {})]
+        if not prices:
+            return None
+        return round(sum(prices) / len(prices) * VAT_MULTIPLIER / KWH_DIVISOR, 3)
+    except Exception as e:
+        logging.error(f"NordPool klaida ({date}): {e}", exc_info=True)
+        return None
 
 
 def get_nordpool_info() -> str:
-    """Sinchroninis wrapper elektros kainų gavimui."""
-    try:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        try:
-            prices = loop.run_until_complete(_fetch_prices())
-        finally:
-            loop.close()
-    except Exception as e:
-        print(f"NordPool klaida: {e}")
+    today = datetime.date.today()
+    price_today = _fetch_price(today)
+
+    if price_today is None:
         return "NordPool duomenų nepavyko gauti."
 
+    tomorrow = today + datetime.timedelta(days=1)
+    price_tomorrow = _fetch_price(tomorrow)
+    tomorrow_str = f"{price_tomorrow} €" if price_tomorrow is not None else "duomenų dar nėra."
+
     return (
-        f"Vidutinė elektros kaina šiandien: {prices['today']}\n"
-        f"Rytoj: {prices['tomorrow']}"
+        f"Vidutinė elektros kaina šiandien: {price_today} €\n"
+        f"Rytoj: {tomorrow_str}"
     )
 
 
